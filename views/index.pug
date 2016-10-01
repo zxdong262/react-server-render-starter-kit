@@ -1,0 +1,8 @@
+include parts/head1
+meta(name='description', content=local.description)
+
+title #{ local.state && local.state.title ? (local.state.title + ' - ' + local.name) : local.name}
+include parts/head2
+#wrapper !{local.html || ''}
+include parts/footer-js
+include parts/footer-end

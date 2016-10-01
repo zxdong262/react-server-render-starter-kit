@@ -1,0 +1,11 @@
+
+/**
+ * react-server-render-starter-kit
+ * @version v0.0.1 - 2016-10-01
+ * @link https://github.com/zxdong262/react-server-render-starter-kit
+ * @author ZHAO Xudong (zxdong@gmail.com)
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
+      
+body{background:#f2f2f2}#main{min-height:1600px;background:#fff}#menus .lists a{padding:10px 25px;display:block;border-radius:5px}#menus .lists a:hover{background:#ddd}#menus .lists a.active{background:#08c;color:#eee}.loading{position:fixed;background:#333;color:#fff;font-size:12px;border-radius:4px 0 0 4px;padding:4px;right:0;top:5px}
+/*# sourceMappingURL=app.styles.css.map*/

@@ -1,0 +1,14 @@
+{
+  "restartable": "rs",
+  "verbose": true,
+  "watch": [
+    "scripts/",
+    "server/",
+    "config.default.js",
+    "config.js"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js json pug"
+}
