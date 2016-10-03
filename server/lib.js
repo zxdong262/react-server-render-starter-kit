@@ -10,7 +10,7 @@ const local = _.pick(config.pkg, ['name', 'version', 'keywords', 'description', 
 let render = ctx => ctx.local
 
 try {
-  render = require('./render').default
+  render = require('./render.min').default
 } catch(e) {
   console.log('need render function ')
 }

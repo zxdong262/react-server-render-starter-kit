@@ -28,7 +28,9 @@ class S extends React.Component {
   }
 
   componentDidMount() {
-    S.fetchData(this.props)
+    if (!window.h5.state.posts) {
+      S.fetchData(this.props)
+    } else delete window.h5.state.posts
   }
 
   componentWillReceiveProps(nextProps) {

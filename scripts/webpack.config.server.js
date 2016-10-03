@@ -1,7 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
 const UnminifiedWebpackPlugin = require('unminified-webpack-plugin')
-
+const pack = require('../package.json')
+const exts = Object.keys(pack.dependencies).concat(Object.keys(pack.devDependencies))
 module.exports = exports.default = {
   entry: {
     render: './src/server.js'
@@ -13,20 +14,7 @@ module.exports = exports.default = {
   },
   target: 'node',
   watch: true,
-  externals: {
-    react: {
-      root: 'React',
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react'
-    },
-    'react-dom': {
-      root: 'ReactDOM',
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'react-dom'
-    }
-  },
+  externals: exts,
   module: {
     loaders: [
       {

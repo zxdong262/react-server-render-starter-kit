@@ -31,7 +31,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    App.fetchData(this.props)
+    if (!window.h5.state.cats) {
+      App.fetchData(this.props)
+    } else {
+      delete window.h5.state.cats
+    }
     $(window).on('resize', this.checkNavBar)
     this.checkNavBar()
   }
