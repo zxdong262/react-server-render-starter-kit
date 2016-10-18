@@ -13,7 +13,7 @@ export default class Nav extends React.Component {
 		}
 	}
 
-	onChange(e) {
+	onChange = (e) => {
 		this.setState({
 			title: e.target.value
 		})
@@ -27,7 +27,7 @@ export default class Nav extends React.Component {
     }
   }
 
-	onSearch(e) {
+	onSearch = (e) => {
 		e.preventDefault()
 		browserHistory.push(`/s?title=${this.state.title}`)
 	}
@@ -53,10 +53,10 @@ export default class Nav extends React.Component {
 							<hr />
 						</div>
 
-						<form action={'/s'} onSubmit={this.onSearch.bind(this)}>
+						<form action={'/s'} onSubmit={this.onSearch}>
 							<div className="form-group">
 								<div className="input-group">
-									<input className="form-control" name="title" type="search" value={this.state.title} onChange={this.onChange.bind(this)} />
+									<input className="form-control" name="title" type="search" value={this.state.title} onChange={this.onChange} />
 									<span className="input-group-btn">
 										<button className="btn btn-secondary" type="submit">search</button>
 									</span>

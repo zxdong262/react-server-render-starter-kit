@@ -5399,6 +5399,17 @@
 	
 			var _this = (0, _possibleConstructorReturn3.default)(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).call(this, props));
 	
+			_this.onChange = function (e) {
+				_this.setState({
+					title: e.target.value
+				});
+			};
+	
+			_this.onSearch = function (e) {
+				e.preventDefault();
+				_reactRouter.browserHistory.push('/s?title=' + _this.state.title);
+			};
+	
 			_this.state = {
 				title: _this.props.location.query.title || ''
 			};
@@ -5406,13 +5417,6 @@
 		}
 	
 		(0, _createClass3.default)(Nav, [{
-			key: 'onChange',
-			value: function onChange(e) {
-				this.setState({
-					title: e.target.value
-				});
-			}
-		}, {
 			key: 'componentWillReceiveProps',
 			value: function componentWillReceiveProps(nextProps) {
 				if (JSON.stringify(nextProps.location.query) !== JSON.stringify(this.props.location.query)) {
@@ -5420,12 +5424,6 @@
 						title: nextProps.location.query.title || ''
 					});
 				}
-			}
-		}, {
-			key: 'onSearch',
-			value: function onSearch(e) {
-				e.preventDefault();
-				_reactRouter.browserHistory.push('/s?title=' + this.state.title);
 			}
 		}, {
 			key: 'render',
@@ -5469,14 +5467,14 @@
 							),
 							_react2.default.createElement(
 								'form',
-								{ action: '/s', onSubmit: this.onSearch.bind(this) },
+								{ action: '/s', onSubmit: this.onSearch },
 								_react2.default.createElement(
 									'div',
 									{ className: 'form-group' },
 									_react2.default.createElement(
 										'div',
 										{ className: 'input-group' },
-										_react2.default.createElement('input', { className: 'form-control', name: 'title', type: 'search', value: this.state.title, onChange: this.onChange.bind(this) }),
+										_react2.default.createElement('input', { className: 'form-control', name: 'title', type: 'search', value: this.state.title, onChange: this.onChange }),
 										_react2.default.createElement(
 											'span',
 											{ className: 'input-group-btn' },
