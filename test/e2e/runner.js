@@ -1,12 +1,10 @@
-'use strict'
-
-process.env.NODE_ENV = 'development'
 
 const
 config = require('../../server/config'),
 port = config.testRunnerPort,
 host = '0.0.0.0',
 app = require('../../server/app')
+
 app.listen(port, host, function() {
   console.log(`${new Date()} ${config.pkg.name} runs on ${host}:${port}`)
 

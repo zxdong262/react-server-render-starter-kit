@@ -77,7 +77,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(221);
+	var _reactDom = __webpack_require__(222);
 	
 	var _reactRedux = __webpack_require__(29);
 	
@@ -1543,7 +1543,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Post = function Post(post, index) {
-		var isSingle = arguments.length <= 2 || arguments[2] === undefined ? false : arguments[2];
+		var isSingle = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 	
 	
 		var url = '/' + post.cat.id + '/' + post.id;
@@ -5339,7 +5339,7 @@
 		_react2.default.createElement(
 			'p',
 			null,
-			'© 2016',
+			'\xA9 2016',
 			' ',
 			_react2.default.createElement(
 				'a',
@@ -5445,7 +5445,7 @@
 						_react2.default.createElement(
 							'button',
 							{ className: 'navbar-toggler pull-xs-right', type: 'button', 'data-toggle': 'collapse', 'data-target': '#menus' },
-							'☰'
+							'\u2630'
 						)
 					),
 					_react2.default.createElement(
@@ -6438,7 +6438,7 @@
 	var composedCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default))(_redux.createStore);
 	
 	function configureStore() {
-	  var preloadedState = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
 	
 	  var store = composedCreateStore(_reducers2.default, preloadedState);
@@ -8439,7 +8439,7 @@
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(220);
+	__webpack_require__(221);
 	module.exports = self.fetch.bind(self);
 
 
@@ -12245,10 +12245,10 @@
 /* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _ponyfill = __webpack_require__(218);
@@ -12257,17 +12257,24 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var root = undefined; /* global window */
+	var root; /* global window */
 	
-	if (typeof global !== 'undefined') {
-		root = global;
+	
+	if (typeof self !== 'undefined') {
+	  root = self;
 	} else if (typeof window !== 'undefined') {
-		root = window;
+	  root = window;
+	} else if (typeof global !== 'undefined') {
+	  root = global;
+	} else if (true) {
+	  root = module;
+	} else {
+	  root = Function('return this')();
 	}
 	
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(220)(module)))
 
 /***/ },
 /* 218 */
@@ -12301,6 +12308,22 @@
 /* 219 */
 7,
 /* 220 */
+/***/ function(module, exports) {
+
+	module.exports = function(module) {
+		if(!module.webpackPolyfill) {
+			module.deprecate = function() {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	}
+
+
+/***/ },
+/* 221 */
 /***/ function(module, exports) {
 
 	(function(self) {
@@ -12739,7 +12762,7 @@
 
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports) {
 
 	module.exports = ReactDOM;
